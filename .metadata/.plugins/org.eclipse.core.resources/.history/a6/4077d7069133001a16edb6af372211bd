@@ -1,0 +1,49 @@
+package practice;
+import java.util.Arrays;
+
+public class BunkerArray {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[][] arr= {{4, 9, 6, 7, 3}, {4, 9, 6, 15, 21}, {4, 9, 4, 17, 4}};
+		
+		for(int i=0;i<arr.length;i++) {
+			int[] a=arr[i];
+		
+		System.out.println(Arrays.toString(a)+" is BunkerArray "+ isBunkerArray(a));
+		}
+
+	}
+	
+	public static boolean isBunkerArray(int [] a) {
+		
+		boolean isBunker=false;
+		
+		for(int j=0;j<a.length-1;j++) {
+			
+			if(a[j]%2!=0) {
+								
+				if(isPrime(a[j+1])) {
+					
+					isBunker= true;
+					break;					
+				}
+			}
+			
+		}
+		
+		return isBunker;
+		
+	}
+	
+	public static boolean isPrime(int a) {
+		
+		for(int k=2;k<a;k++) {
+			if(a%k==0) {
+				return false;				
+			}			
+		}
+		return true;
+	}
+
+}
